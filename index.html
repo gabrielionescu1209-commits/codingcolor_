@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-   <meta charset="utf-8">
-   <title>Coding&Color</title>
-   <link href="styles.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <title>Coding_Color-4BINF</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="header">
-   <h1 id="saluto"></h1>
-</div>
-<div id="title">
-</div>
-<div id="input">
-</div>
-<div id="output">
-   <p id="out">Output</p>
-   <p id="error">Errori</p>
-</div>
-<script src="script.js"></script>
+    <div id="header">
+        <h1 id="saluto">Coding_Color</h1>
+    </div>
+
+    <div id="title">
+        <h1>Coding_color</h1>
+    </div>
+
+    <div id="input">
+        <label for="numero">Inserisci un numero (0-255): </label>
+        <input type="number" id="numero" placeholder="inserisci un numero">
+        <br>
+        <label for="testo">Inserisci un testo: </label>
+        <input type="text" id="testo" placeholder="inserisci un testo">
+        <br>
+        <button type="button" id="btnElabora" onclick="elabora()">Elabora</button>
+        <button type="button" id="btnCancella" onclick="pulisci()">Pulisci</button>
+    </div>
+
+    <div id="output">
+        <p id="titolo">Numeri Inseriti</p>
+        <p id="testoColorato">Testo Colorato</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
