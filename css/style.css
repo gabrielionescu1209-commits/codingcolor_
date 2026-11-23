@@ -1,43 +1,71 @@
-let colori = [];
-// parte di codice che serve per mostrare il saluto e la data 
-let d = new Date();
-document.getElementById("saluto").innerHTML = "Oggi è il " + d.toLocaleString();
-// Funzione che elabora cio che è stato scritto dall'utente
-function elabora() {
-    let inputNum = document.getElementById("numero").value;
-    let numero = Number(inputNum);
-    let testo = document.getElementById("testo").value;
-    if (inputNum !== "" && !isNaN(numero) && numero >= 0 && numero <= 255) {
-        if (colori.length < 3) {
-            colori.push(numero);
-           
-            // Aggiorna il testo solo se l'utente ha scritto qualcosa
-            if (testo !== "") {
-                document.getElementById("testoColorato").innerHTML = testo;
-            }
-            document.getElementById("titolo").innerHTML = "Hai inserito il numero: " + numero;
-            document.getElementById("titolo").innerHTML += "<br>I colori inseriti sono: " + colori.join(", ");
-            document.getElementById("numero").value = "";
-// Quando i colori inseriti sono tre questi vengono applicati al testo
-            if (colori.length === 3) {
-                let newColor = `rgb(${colori[0]}, ${colori[1]}, ${colori[2]})`;
-                document.getElementById("testoColorato").style.color = newColor;
-                document.getElementById("titolo").innerHTML += "<br>Colore finale applicato: <b>" + newColor + "</b>";
-            }
-        } else {
-            alert("Numero massimo di inserimenti raggiunto");
-        }
-    } else {
-        alert("Il numero inserito non va bene deve essere tra 0 e 255");
-    }
+/* con l'asteristico si indica che vale per tutta la pagina
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body{
+    background-color: #f4f6f9;
+    color: #333333;
+    padding: 40px 20px;
+    text-align: center;
+}
+#saluto{
+    background-color: #ffffff;
+    color: #555555;
+    font-size: 14px;
+    padding: 8px 16px;
+    display: inline-block;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+#title{
+    margin-bottom: 25px;
+}
+#title h1{
+    font-size: 34px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+input{
+    font-size: 16px;
+    padding: 8px 10px;
+    margin: 6px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
 }
 
-// Funzione per riportare la pagina allo stato iniziale
-function pulisci() {
-    document.getElementById("numero").value = "";
-    document.getElementById("testo").value = "";
-    document.getElementById("titolo").innerHTML = "Numeri Inseriti";
-    document.getElementById("testoColorato").innerHTML = "Testo Colorato";
-    document.getElementById("testoColorato").style.color = "black";
-    colori = [];
+input:focus{
+    outline: none;
+    border-color: #4CAF50;
+}
+
+button{
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 15px;
+    margin: 6px 4px;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #45a049;
+}
+#output{
+    margin-top: 28px;
+}
+#titolo{
+    font-size: 15px;
+    color: #555555;
+    margin-bottom: 8px;
+}
+#testoColorato{
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 8px;
 }
